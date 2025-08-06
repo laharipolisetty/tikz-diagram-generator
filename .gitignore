@@ -1,0 +1,30 @@
+# Python Bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+venv/
+env/
+
+# IDE Configurations
+.vscode/
+.idea/
+
+# OS-specific Files
+.DS_Store
+Thumbs.db
+
+# Python Dependencies
+*.egg-info/
+dist/
+build/
+
+# Environment Variables
+.env
+
+# Logs
+*.log
+
+# Cache Files
+.cache/
