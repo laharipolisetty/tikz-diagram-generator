@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikZ Diagram Generator</title>
+    <link rel="stylesheet" href="src/index.css">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI-Powered LaTeX TikZ Diagram Generator</h1>
+            <p>Convert natural language descriptions into professional TikZ code effortlessly.</p>
+        </header>
+
+        <main>
+            <textarea id="description" placeholder="Describe your diagram in plain English..."></textarea>
+            <button id="generateBtn">Generate TikZ Code</button>
+
+            <div class="output-section">
+                <h2>Generated TikZ Code</h2>
+                <pre id="tikzOutput">Your code will appear here...</pre>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 TikZ Diagram Generator | Built by Lahari 🚀</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', async () => {
+            const description = document.getElementById('description').value;
+            const response = await fetch('http://127.0.0.1:5000/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ description: description })
+            });
+            const data = await response.json();
+            document.getElementById('tikzOutput').textContent = data.tikz_code;
+        });
+    </script>
+</body>
+</html>
